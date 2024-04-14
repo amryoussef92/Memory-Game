@@ -13,7 +13,7 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
-  hyphens: 100vh;
+  height: 100vh;
   background: var(--cerulean);
   color: white;
 }
