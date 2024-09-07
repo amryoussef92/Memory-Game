@@ -18,19 +18,20 @@ const startGame = () => {
   const fronts = cards.sort(() => 0.5 - Math.random()).slice(0, 8);
 
   // double, shuffle , add to grid
-  cardGrid.innerHTML = [...fronts, ...fronts]
-    .map(({ name, image }) => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.dataset.name = name;
-      card.innerHTML = `
-      <img src="backgroung dog.jpeg" alt="" class="back" />
-    <img src="${image}" alt="${name}" class="front" />
-    `;
-      return card.outerHTML;
-    })
-    .sort(() => 0.5 - Math.random())
+  const doubledCards = [...fronts, ...fronts].sort(() => 0.5 - Math.random());
+
+  // Generate the HTML for the cards
+  const cardHTML = doubledCards
+    .map(
+      ({ name, image }) => `
+    <div class="card" data-name="${name}">
+      <img src="backgroung dog.jpeg" alt="Card Back" class="back" />
+      <img src="${image}" alt="${name}" class="front" />
+    </div>`
+    )
     .join("");
+
+  cardGrid.innerHTML = cardHTML;
   startTimer();
 };
 
@@ -91,6 +92,7 @@ const checkMatch = () => {
   }
   flippedCards = [];
   console.log(flippedCards);
+  console.log(matchedCards);
 };
 const checkGameCompletion = () => {
   if (cardGrid.children.length === matchedCards.length) {

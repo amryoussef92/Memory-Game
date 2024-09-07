@@ -1,8 +1,8 @@
 :root {
-  --card-size: 100px;
+  --card-size: 120px;
   --rich-black: #00171f;
   --prussian-blue: #003459;
-  --cerulean: #007ea7;
+  --cerulean: #072e3b;
 }
 * {
   padding: 0;
@@ -38,10 +38,15 @@ body {
   position: absolute;
   transform: 0.3s;
   backface-visibility: hidden;
-  border: 3px solid var(--rich-black);
+  border: 1px solid var(--rich-black);
   border-radius: 15px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
   background: white;
+}
+h1 {
+  justify-self: center;
+  color: #f6f1d1;
+  margin-bottom: 1em;
 }
 .front {
   transform: rotateY(180deg);
